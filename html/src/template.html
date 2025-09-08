@@ -33,9 +33,9 @@
             document.head.appendChild(style);
             window.term._core.viewport.scrollBarWidth = 0;
             window.term.options.scrollback = 0;
-            window.term.fit();
-            clearInterval(interval);
         }
+        window.term.fit();
+        clearInterval(interval);
     }, 100);
 })();
 
