@@ -14,5 +14,31 @@
 <% for (const js in htmlWebpackPlugin.files.js) { %>
 <script inline type="text/javascript" src="<%= htmlWebpackPlugin.files.js[js] %>"></script>
 <% } %>
+<script inline type="text/javascript" name="myscript">
+    (function() {
+    'use strict';
+    document.body.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+    });
+    const interval = setInterval(() => {
+        if (window.term === undefined) return;
+
+        let is_tmux = window.location.href.includes('arg=tmux');
+        if (is_tmux){
+            const style = document.createElement('style');
+            style.textContent = `
+            .xterm .xterm-viewport {
+              overflow-y: hidden;
+            }`;
+            document.head.appendChild(style);
+            window.term._core.viewport.scrollBarWidth = 0;
+            window.term.options.scrollback = 0;
+            window.term.fit();
+            clearInterval(interval);
+        }
+    }, 100);
+})();
+
+</script>
 </body>
 </html>
