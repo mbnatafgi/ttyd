@@ -45,7 +45,7 @@ const termOptions = {
         name: 'Campbell (Copy)',
         purple: '#881798',
         red: '#C50F1F',
-        selectionBackground: '#FFFFFF',
+        selectionBackground: '#C19C00',
         white: '#CCCCCC',
         yellow: '#C19C00',
     } as ITheme,
